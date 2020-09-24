@@ -74,7 +74,7 @@ public class Maininterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CinemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CinemaActionPerformed
-        MenuCine abrir = new MenuCine();
+        InterfazMenuCine abrir = new InterfazMenuCine();
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CinemaActionPerformed
