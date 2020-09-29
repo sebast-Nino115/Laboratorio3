@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package laboratorio3;
+package Cine;
 
 /**
  *
@@ -29,8 +29,8 @@ public class ComprasCine extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Retorno = new javax.swing.JButton();
-        General1 = new javax.swing.JButton();
-        Preferencial1 = new javax.swing.JButton();
+        General = new javax.swing.JButton();
+        Preferencial = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,16 +41,21 @@ public class ComprasCine extends javax.swing.JFrame {
         Retorno.setText("Return");
         jPanel1.add(Retorno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 130, 40));
 
-        General1.setText("General");
-        jPanel1.add(General1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 150, 60));
-
-        Preferencial1.setText("Preferencial");
-        Preferencial1.addActionListener(new java.awt.event.ActionListener() {
+        General.setText("General");
+        General.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Preferencial1ActionPerformed(evt);
+                GeneralActionPerformed(evt);
             }
         });
-        jPanel1.add(Preferencial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 60));
+        jPanel1.add(General, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 150, 60));
+
+        Preferencial.setText("Preferencial");
+        Preferencial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PreferencialActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Preferencial, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cinecolombia1.2.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 170));
@@ -71,9 +76,13 @@ public class ComprasCine extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Preferencial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Preferencial1ActionPerformed
+    private void PreferencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreferencialActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Preferencial1ActionPerformed
+    }//GEN-LAST:event_PreferencialActionPerformed
+
+    private void GeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneralActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GeneralActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,8 +120,8 @@ public class ComprasCine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton General1;
-    private javax.swing.JButton Preferencial1;
+    private javax.swing.JButton General;
+    private javax.swing.JButton Preferencial;
     private javax.swing.JButton Retorno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
