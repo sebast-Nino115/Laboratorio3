@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cine;
+package laboratorio3;
 
 /**
  *
@@ -29,8 +29,8 @@ public class ComprasCine extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Retorno = new javax.swing.JButton();
-        General = new javax.swing.JButton();
-        Preferencial = new javax.swing.JButton();
+        Boletasgenerales = new javax.swing.JButton();
+        Boletaspreferenciales = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,23 +39,28 @@ public class ComprasCine extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Retorno.setText("Return");
-        jPanel1.add(Retorno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 130, 40));
-
-        General.setText("General");
-        General.addActionListener(new java.awt.event.ActionListener() {
+        Retorno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GeneralActionPerformed(evt);
+                RetornoActionPerformed(evt);
             }
         });
-        jPanel1.add(General, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 150, 60));
+        jPanel1.add(Retorno, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 130, 40));
 
-        Preferencial.setText("Preferencial");
-        Preferencial.addActionListener(new java.awt.event.ActionListener() {
+        Boletasgenerales.setText("General");
+        Boletasgenerales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PreferencialActionPerformed(evt);
+                BoletasgeneralesActionPerformed(evt);
             }
         });
-        jPanel1.add(Preferencial, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 60));
+        jPanel1.add(Boletasgenerales, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 150, 60));
+
+        Boletaspreferenciales.setText("Preferencial");
+        Boletaspreferenciales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoletaspreferencialesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Boletaspreferenciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cinecolombia1.2.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 170));
@@ -68,21 +73,27 @@ public class ComprasCine extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PreferencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreferencialActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PreferencialActionPerformed
+    private void BoletaspreferencialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoletaspreferencialesActionPerformed
+        Interfazsillas abrir = new Interfazsillas();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BoletaspreferencialesActionPerformed
 
-    private void GeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneralActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GeneralActionPerformed
+    private void BoletasgeneralesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoletasgeneralesActionPerformed
+      Interfazsillas abrir = new Interfazsillas();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BoletasgeneralesActionPerformed
+
+    private void RetornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetornoActionPerformed
+        
+    }//GEN-LAST:event_RetornoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,8 +131,8 @@ public class ComprasCine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton General;
-    private javax.swing.JButton Preferencial;
+    private javax.swing.JButton Boletasgenerales;
+    private javax.swing.JButton Boletaspreferenciales;
     private javax.swing.JButton Retorno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
