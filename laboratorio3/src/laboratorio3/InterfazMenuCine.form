@@ -57,9 +57,9 @@
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                  <Component id="consultardatoscine" min="-2" pref="192" max="-2" attributes="0"/>
+                  <Component id="Datos" min="-2" pref="192" max="-2" attributes="0"/>
                   <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
-                  <Component id="Comprar" min="-2" pref="192" max="-2" attributes="0"/>
+                  <Component id="Compras" min="-2" pref="192" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -73,8 +73,8 @@
                   <Component id="jLabel3" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="consultardatoscine" min="-2" pref="66" max="-2" attributes="0"/>
-                      <Component id="Comprar" min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="Datos" min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="Compras" min="-2" pref="66" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -88,7 +88,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Comprar">
+        <Component class="javax.swing.JButton" name="Compras">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -96,7 +96,7 @@
             <Property name="text" type="java.lang.String" value="Compras"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComprarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComprasActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -110,7 +110,7 @@
             <Property name="text" type="java.lang.String" value=" Bienvenidos a Cine Colombia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="consultardatoscine">
+        <Component class="javax.swing.JButton" name="Datos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -118,7 +118,7 @@
             <Property name="text" type="java.lang.String" value="Consulta de datos "/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultardatoscineActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DatosActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">

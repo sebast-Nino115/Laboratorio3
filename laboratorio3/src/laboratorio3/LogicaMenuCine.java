@@ -1,5 +1,5 @@
 
-package Cine;
+package laboratorio3;
 
 
 public class LogicaMenuCine {

@@ -3,12 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Parqueadero;
-
-import Parqueadero.Panelretirarvehiculo;
-import Parqueadero.Panellistado;
-import Parqueadero.Panelingresarvehiculo;
-import laboratorio3.Maininterfaz;
+package laboratorio3;
 
 
 public class interfazparqueadero extends javax.swing.JFrame {

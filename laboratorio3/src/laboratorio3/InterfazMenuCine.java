@@ -1,4 +1,4 @@
-package Cine;
+package laboratorio3;
 
 
 public class InterfazMenuCine extends javax.swing.JFrame {
@@ -19,9 +19,9 @@ public class InterfazMenuCine extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Comprar = new javax.swing.JButton();
+        Compras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        consultardatoscine = new javax.swing.JButton();
+        Datos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -31,11 +31,11 @@ public class InterfazMenuCine extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cinecolombia1.2.png"))); // NOI18N
 
-        Comprar.setBackground(new java.awt.Color(255, 255, 255));
-        Comprar.setText("Compras");
-        Comprar.addActionListener(new java.awt.event.ActionListener() {
+        Compras.setBackground(new java.awt.Color(255, 255, 255));
+        Compras.setText("Compras");
+        Compras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComprarActionPerformed(evt);
+                ComprasActionPerformed(evt);
             }
         });
 
@@ -43,11 +43,11 @@ public class InterfazMenuCine extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText(" Bienvenidos a Cine Colombia");
 
-        consultardatoscine.setBackground(new java.awt.Color(255, 255, 255));
-        consultardatoscine.setText("Consulta de datos ");
-        consultardatoscine.addActionListener(new java.awt.event.ActionListener() {
+        Datos.setBackground(new java.awt.Color(255, 255, 255));
+        Datos.setText("Consulta de datos ");
+        Datos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultardatoscineActionPerformed(evt);
+                DatosActionPerformed(evt);
             }
         });
 
@@ -69,9 +69,9 @@ public class InterfazMenuCine extends javax.swing.JFrame {
                 .addComponent(jLabel3))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(consultardatoscine, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68)
-                .addComponent(Comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Compras, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,8 +83,8 @@ public class InterfazMenuCine extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(consultardatoscine, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Datos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Compras, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,15 +101,17 @@ public class InterfazMenuCine extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void consultardatoscineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultardatoscineActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_consultardatoscineActionPerformed
+    private void DatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatosActionPerformed
+        InterfazMenuCine abrir = new InterfazMenuCine();
+        abrir.setVisible(true);
+        this.setVisible(false);      
+    }//GEN-LAST:event_DatosActionPerformed
 
-    private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
+    private void ComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprasActionPerformed
         ComprasCine abrir = new ComprasCine();
         abrir.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_ComprarActionPerformed
+    }//GEN-LAST:event_ComprasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,8 +150,8 @@ public class InterfazMenuCine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Comprar;
-    private javax.swing.JButton consultardatoscine;
+    private javax.swing.JButton Compras;
+    private javax.swing.JButton Datos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
