@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cine;
+package Parqueadero;
 
 /**
  *
- * @author catal
+ * @author Acer
  */
-public class LógicaCine {
+class carros {
     
 }

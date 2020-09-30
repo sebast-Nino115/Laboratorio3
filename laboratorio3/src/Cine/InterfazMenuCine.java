@@ -1,4 +1,6 @@
-package laboratorio3;
+package Cine;
+
+import Cine.ComprasCine;
 
 
 public class InterfazMenuCine extends javax.swing.JFrame {
