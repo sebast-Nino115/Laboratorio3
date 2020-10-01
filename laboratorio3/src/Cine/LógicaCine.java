@@ -11,4 +11,5 @@ package Cine;
  */
 public class LógicaCine {
     
+    
 }
