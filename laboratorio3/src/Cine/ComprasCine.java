@@ -31,7 +31,6 @@ public class ComprasCine extends javax.swing.JFrame {
         Retorno = new javax.swing.JButton();
         Boletasgenerales = new javax.swing.JButton();
         Boletaspreferenciales = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,9 +60,6 @@ public class ComprasCine extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Boletaspreferenciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 60));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cinecolombia1.2.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 170));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,7 +130,6 @@ public class ComprasCine extends javax.swing.JFrame {
     private javax.swing.JButton Boletasgenerales;
     private javax.swing.JButton Boletaspreferenciales;
     private javax.swing.JButton Retorno;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
