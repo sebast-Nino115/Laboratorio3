@@ -40,6 +40,7 @@ public Logicaparqueadero(Double precioscarro, Double preciosmoto, Double precios
 }
 //ingresar nuevo carro
 public carros Registrarcarro(carros Nuevocarro){
+    
     if(ocupacioncarros< vacantescarros){
         Listadocarros.add(Nuevocarro);
         ocupacioncarros++;
@@ -55,6 +56,50 @@ public carros Eliminarcarro(carros Borrarcarro){
         Listadocarros.remove(indice);
         ocupacioncarros--;
         return Borrarcarro;
+    }else{
+        return null;
+    }
+}
+//ingresar nueva moto
+public motos Registrarmoto(motos Nuevamoto){
+    
+    if(ocupacionmotos< vacantesmotos){
+        Listadomotos.add(Nuevamoto);
+        ocupacionmotos++;
+        return Nuevamoto;
+    }else{
+        return null;
+    }
+}
+//sacar una moto
+public motos Eliminarmoto(motos Borrarmoto){
+    if(!Listadomotos.isEmpty()){
+        int indice=Listadomotos.indexOf(Borrarmoto);
+        Listadomotos.remove(indice);
+        ocupacionmotos--;
+        return Borrarmoto;
+    }else{
+        return null;
+    }
+}
+//ingresar nueva Bicicleta
+public bicicletas Registrarbicicleta(bicicletas Nuevabicicleta){
+    
+    if(ocupacionbicicletas< vacantesbicicletas){
+        Listadobicicletas.add(Nuevabicicleta);
+        ocupacionbicicletas++;
+        return Nuevabicicleta;
+    }else{
+        return null;
+    }
+}
+//sacar una moto
+public bicicletas Eliminarbicicletas(bicicletas Borrarbicicleta){
+    if(!Listadomotos.isEmpty()){
+        int indice=Listadobicicletas.indexOf(Borrarbicicleta);
+        Listadobicicletas.remove(indice);
+        ocupacionbicicletas--;
+        return Borrarbicicleta;
     }else{
         return null;
     }
