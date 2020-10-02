@@ -9,6 +9,6 @@ package Parqueadero;
  *
  * @author Acer
  */
-class carros {
+class carros extends Transportes{
     
 }
