@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 package Parqueadero;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
+import java.util.Date;
 
 /**
  *
  * @author Acer
  */
 public class Panelingresarvehiculo extends javax.swing.JFrame {
-
     /**
      * Creates new form Panelingresarvehiculo
      */
@@ -194,6 +196,25 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
         // TODO add your handling code here:
+        
+        if (TipoVehiculo.getSelectedItem()== "Carro")
+        {
+            carros carronuevo = new carros();
+            carronuevo.placa = Placa.getText();
+            carronuevo.nombre = Nombre.getText();
+            System.out.println(""+ carronuevo.fechaingreso);
+        }
+        else if(TipoVehiculo.getSelectedItem()== "Moto")
+        {
+            
+        }
+        else if (TipoVehiculo.getSelectedItem() == "Bicicleta")
+        {
+            
+        }
+        else {
+            System.out.println("Elija una opcion de Vehiculo");
+        }
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void TipoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TipoVehiculoActionPerformed
