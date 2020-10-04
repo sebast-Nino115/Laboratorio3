@@ -5,7 +5,9 @@
  */
 package Parqueadero;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,7 +15,7 @@ import java.util.Date;
  */
 public class Panelingresarvehiculo extends javax.swing.JFrame {
     Logicaparqueadero logica = new Logicaparqueadero( 75.0, 20.0, 10.0, 12, 8, 6); 
-
+     bicicletas Registrarbicicleta = new bicicletas();
     public Panelingresarvehiculo() {
         initComponents();
         Placa.setVisible(false); 
@@ -208,13 +210,18 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         }
         else if (TipoVehiculo.getSelectedItem() == "Bicicleta")
         {
-            bicicletas bicicletanueva = new bicicletas();
-            bicicletanueva.nombre = Nombre.getText();
-            bicicletanueva.color = Color.getText();
-            bicicletanueva.fechaingreso=objDate;
-        }
-        else {
-            System.out.println("Elija una opcion de Vehiculo");
+            if(Nombre.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del propietario");
+            }else if(Color.getText().isEmpty()){
+             JOptionPane.showMessageDialog(null, "Ingrese el color de la bicicleta");
+            }else{
+            Registrarbicicleta.nombre=Nombre.getText();
+            Registrarbicicleta.color= Color.getText();
+            Registrarbicicleta.fechaingreso=objDate;
+            logica.Registrarbicicleta(Registrarbicicleta);
+            this.imprimirListaBici(logica.Listadobicicletas);
+
+            }
         }
     }//GEN-LAST:event_RegistrarActionPerformed
 
@@ -243,9 +250,13 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ColorActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public void imprimirListaBici(ArrayList<bicicletas> listado){
+   for(int indice=0; indice < logica.Listadobicicletas.size(); indice++){
+         System.out.print("\n"+logica.Listadobicicletas.get(indice).nombre);
+         System.out.print("\n"+logica.Listadobicicletas.get(indice).color);
+         System.out.print("\n"+logica.Listadobicicletas.get(indice).fechaingreso);
+  }
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
