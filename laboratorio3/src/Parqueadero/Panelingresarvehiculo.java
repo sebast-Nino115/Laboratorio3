@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Parqueadero;
-import java.time.format.DateTimeFormatter;  
-import java.time.LocalDateTime;    
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -194,8 +193,8 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_PlacaActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
-        // TODO add your handling code here:
-        
+        Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+       
         if (TipoVehiculo.getSelectedItem()== "Carro")
         {
             carros carronuevo = new carros();
@@ -209,7 +208,10 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         }
         else if (TipoVehiculo.getSelectedItem() == "Bicicleta")
         {
-            
+            bicicletas bicicletanueva = new bicicletas();
+            bicicletanueva.nombre = Nombre.getText();
+            bicicletanueva.color = Color.getText();
+            bicicletanueva.fechaingreso=objDate;
         }
         else {
             System.out.println("Elija una opcion de Vehiculo");
