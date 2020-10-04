@@ -13,9 +13,8 @@ import java.util.Date;
  * @author Acer
  */
 public class Panelingresarvehiculo extends javax.swing.JFrame {
-    /**
-     * Creates new form Panelingresarvehiculo
-     */
+    Logicaparqueadero logica = new Logicaparqueadero( 75.0, 20.0, 10.0, 12, 8, 6); 
+
     public Panelingresarvehiculo() {
         initComponents();
         Placa.setVisible(false); 
