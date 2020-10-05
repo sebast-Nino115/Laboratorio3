@@ -2,17 +2,18 @@
 package Parqueadero;
 
  import java.util.ArrayList;
+import java.util.Date;
 
 public class Logicaparqueadero {
-public int vacantescarros;
-public int ocupacioncarros;
-public int vacantesmotos;
-public int ocupacionmotos;
-public int vacantesbicicletas;
-public int ocupacionbicicletas;
+public int vacantescarros=12;
+public int ocupacioncarros=0;
+public int vacantesmotos=8;
+public int ocupacionmotos=0;
+public int vacantesbicicletas=6;
 
 
 
+public ArrayList<puestosbici> Puestob;
 public ArrayList<carros> Listadocarros;
 public ArrayList<motos> Listadomotos;
 public ArrayList<bicicletas> Listadobicicletas;
@@ -22,86 +23,104 @@ public Double preciocarro;
 public Double preciomoto;
 public Double preciobicicleta;
 //constructor
-public Logicaparqueadero(Double precioscarro, Double preciosmoto, Double preciosbicicleta, int tamcarro, int tammoto, int tambici){
- vacantescarros=tamcarro;
- ocupacioncarros=0;
- vacantesmotos=tammoto;
- ocupacionmotos=0;
- vacantesbicicletas=tambici;
- ocupacionbicicletas=0;
+public Logicaparqueadero(){
 
- preciocarro=precioscarro;
- preciomoto=preciosmoto;
- preciobicicleta=preciosbicicleta;
+ this.Listadocarros= new ArrayList<carros>();
+ this.Listadomotos= new ArrayList<motos>();
+ this.Listadobicicletas = new ArrayList<bicicletas>();
+ this.Puestob = new  ArrayList<puestosbici>();
+ this.crearPuestosBici();
+}
+//cantidadde puestos
+private void crearPuestosBici(){
+        for(int i=0; i<vacantesbicicletas; i++)
+            this.Puestob.add(new puestosbici(i+1));
+    }
+//parquear Transportes
 
- Listadocarros= new ArrayList<carros>();
- Listadomotos= new ArrayList<motos>();
- Listadobicicletas = new ArrayList<bicicletas>();
-}
-//ingresar nuevo carro
-public carros Registrarcarro(carros Nuevocarro){
+public String parquearBici(String cedula, Date fechaingreso){
+        String men = "No hay puestos para parquear más carros";
+        
+        if(this.buscarBici(cedula) != null)
+            return "El carro ya esta parqueado en un puesto";
+        
+        if(this.puestoVacio()!=-1){
+            bicicletas bici = new bicicletas(cedula, fechaingreso);
+            this.Puestob.get(this.puestoVacio()).asignarpuesto(bici);
+            this.Puestob.get(this.puestoVacio()).setEstado("Ocupado");
+            return "Carro parqueado con exito";
+        }
+            
+        return men;
+    }
+// retirar transportes
+
+    public String retirarBici(String cedula, Date fechasalida){
+        String mensaje = "No se ha podido retirar el carro";
+        int precio = this.calcularPrecio(hora, minutos, this.buscarCarro(placa));
+        
+        for(int i=0; i<=this.Puestob.size(); i++)
+            if(this.Puestob.get(i).getBici()!= null && 
+                    this.Puestob.get(i).getBici().getCedula().equalsIgnoreCase(cedula)){
+                this.Puestob.get(i).setBici(null);
+                this.Puestob.get(i).setEstado("Libre");
+                return "Se ha retirado correctamente, debe pagar "+precio;
+            }
+                
+        return mensaje;
+    }
+    public String InfoPuestosLibresBici(){
+        String libresb = "";
+        
+        for(puestosbici pb: Puestob)
+            if(pb!=null && pb.getEstado().equalsIgnoreCase("Libre"))
+                libresb += pb.libreStringb()+"\n\n";
+                
+        return libresb;
+    }
+// verificación
+public bicicletas buscarBici(String cedula){
+        bicicletas Bici = null;
+        
+        for(puestosbici pb: Puestob)
+            if(pb.getEstado().equalsIgnoreCase("Ocupado") && 
+                    pb.getBici().getCedula().equalsIgnoreCase(cedula))
+                Bici = pb.getBici();
+        
+        return Bici;
+    }
     
-    if(ocupacioncarros< vacantescarros){
-        Listadocarros.add(Nuevocarro);
-        ocupacioncarros++;
-        return Nuevocarro;
-    }else{
-        return null;
+    public int puestoVacio(){
+        for(puestosbici pb: Puestob)
+            if(pb.getEstado().equalsIgnoreCase("Libre"))
+                return (pb.getNumero()-1);
+        
+        return -1;
     }
-}
-//sacar un carro
-public carros Eliminarcarro(carros Borrarcarro){
-    if(!Listadocarros.isEmpty()){
-        int indice=Listadocarros.indexOf(Borrarcarro);
-        Listadocarros.remove(indice);
-        ocupacioncarros--;
-        return Borrarcarro;
-    }else{
-        return null;
+    public int calcularPrecioBici( Date fechaingreso, Date fechasalida, bicicletas Bici){
+        int costo = 0;
+        
+        
+        
+        return costo;
     }
-}
-//ingresar nueva moto
-public motos Registrarmoto(motos Nuevamoto){
-    
-    if(ocupacionmotos< vacantesmotos){
-        Listadomotos.add(Nuevamoto);
-        ocupacionmotos++;
-        return Nuevamoto;
-    }else{
-        return null;
+
+    public String concatenarPlacasCarros(){
+        String bicicleta = "";
+        
+        for(int i=0; i<this.Puestob.size();i++)
+            if(this.Puestob.get(i).getEstado().equalsIgnoreCase("Ocupado"))
+                bicicleta += this.Puestob.get(i).getBici().getCedula()+"~";
+        
+        return bicicleta;
     }
-}
-//sacar una moto
-public motos Eliminarmoto(motos Borrarmoto){
-    if(!Listadomotos.isEmpty()){
-        int indice=Listadomotos.indexOf(Borrarmoto);
-        Listadomotos.remove(indice);
-        ocupacionmotos--;
-        return Borrarmoto;
-    }else{
-        return null;
+    public String concatenarInfoBici(){
+        String infob = "";
+        
+        for(puestosbici pb: Puestob)
+            if(pb.getEstado().equalsIgnoreCase("Ocupado"))
+                infob += pb.toString()+"\n\n";
+        
+        return infob;
     }
-}
-//ingresar nueva Bicicleta
-public bicicletas Registrarbicicleta(bicicletas Nuevabicicleta){
-    
-    if(ocupacionbicicletas< vacantesbicicletas){
-        Listadobicicletas.add(Nuevabicicleta);
-        ocupacionbicicletas++;
-        return Nuevabicicleta;
-    }else{
-        return null;
-    }
-}
-//sacar una moto
-public bicicletas Eliminarbicicletas(bicicletas Borrarbicicleta){
-    if(!Listadomotos.isEmpty()){
-        int indice=Listadobicicletas.indexOf(Borrarbicicleta);
-        Listadobicicletas.remove(indice);
-        ocupacionbicicletas--;
-        return Borrarbicicleta;
-    }else{
-        return null;
-    }
-}
 }

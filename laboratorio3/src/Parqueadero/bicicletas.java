@@ -12,16 +12,20 @@ import java.util.Date;
  * @author Acer
  */
 class bicicletas extends Transportes {
-    public String color;
+    public String cedula;
 
-    public String getColor() {
-        return color;
+    public bicicletas(String cedula, Date fechaingreso){
+        this.cedula=cedula;
+        this.fechaingreso=fechaingreso;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public String getCedula() {
+        return cedula;
     }
 
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
     public String getNombre() {
         return nombre;
     }

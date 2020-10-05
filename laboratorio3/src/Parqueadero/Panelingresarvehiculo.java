@@ -14,12 +14,13 @@ import javax.swing.JOptionPane;
  * @author Acer
  */
 public class Panelingresarvehiculo extends javax.swing.JFrame {
-    Logicaparqueadero logica = new Logicaparqueadero( 75.0, 20.0, 10.0, 12, 8, 6); 
-     bicicletas Registrarbicicleta = new bicicletas();
+    public Logicaparqueadero parqueadero = new Logicaparqueadero();
     public Panelingresarvehiculo() {
         initComponents();
+        this.setLocationRelativeTo(null);
+ 
         Placa.setVisible(false); 
-        Color.setVisible(false);
+        Cedula.setVisible(false);
         jLabel2.setVisible(false);        
         jLabel5.setVisible(false);
 
@@ -43,7 +44,7 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         Registrar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         TipoVehiculo = new javax.swing.JComboBox<>();
-        Color = new javax.swing.JTextField();
+        Cedula = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,14 +92,14 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
             }
         });
 
-        Color.addActionListener(new java.awt.event.ActionListener() {
+        Cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ColorActionPerformed(evt);
+                CedulaActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel5.setText("Color");
+        jLabel5.setText("Cedula");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,13 +134,13 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(127, 127, 127))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(136, 136, 136)
-                    .addComponent(Color, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                    .addComponent(Cedula, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                     .addGap(125, 125, 125)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,9 +158,9 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
                 .addComponent(TipoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(Placa, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,7 +168,7 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(244, Short.MAX_VALUE)
-                    .addComponent(Color, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(92, 92, 92)))
         );
 
@@ -195,7 +196,13 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_PlacaActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+        String placa = this.Placa.getText();
+        String cedula=this.Cedula.getText();
         Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+        System.out.println(objDate); 
+        String strDateFormat = "hh: mm: ss a dd-MMM-aaaa"; // El formato de fecha está especificado  
+        SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
+        
        
         if (TipoVehiculo.getSelectedItem()== "Carro")
         {
@@ -212,15 +219,10 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         {
             if(Nombre.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese el nombre del propietario");
-            }else if(Color.getText().isEmpty()){
+            }else if(Cedula.getText().isEmpty()){
              JOptionPane.showMessageDialog(null, "Ingrese el color de la bicicleta");
             }else{
-            Registrarbicicleta.nombre=Nombre.getText();
-            Registrarbicicleta.color= Color.getText();
-            Registrarbicicleta.fechaingreso=objDate;
-            logica.Registrarbicicleta(Registrarbicicleta);
-            this.imprimirListaBici(logica.Listadobicicletas);
-
+            parqueadero.parquearBici(cedula, objDate);
             }
         }
     }//GEN-LAST:event_RegistrarActionPerformed
@@ -231,12 +233,12 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         {
             Placa.setVisible(true);
             jLabel2.setVisible(true);
-            Color.setVisible(false);
+            Cedula.setVisible(false);
             jLabel5.setVisible(false);
         }
         else if (TipoVehiculo.getSelectedItem() == "Bicicleta")
         {
-            Color.setVisible(true);
+            Cedula.setVisible(true);
             jLabel5.setVisible(true);
             Placa.setVisible(false);
             jLabel2.setVisible(false);
@@ -246,17 +248,10 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TipoVehiculoActionPerformed
 
-    private void ColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorActionPerformed
+    private void CedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ColorActionPerformed
+    }//GEN-LAST:event_CedulaActionPerformed
 
-    public void imprimirListaBici(ArrayList<bicicletas> listado){
-   for(int indice=0; indice < logica.Listadobicicletas.size(); indice++){
-         System.out.print("\n"+logica.Listadobicicletas.get(indice).nombre);
-         System.out.print("\n"+logica.Listadobicicletas.get(indice).color);
-         System.out.print("\n"+logica.Listadobicicletas.get(indice).fechaingreso);
-  }
-}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -290,7 +285,7 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Color;
+    private javax.swing.JTextField Cedula;
     private javax.swing.JTextField Nombre;
     private javax.swing.JTextField Placa;
     private javax.swing.JButton Registrar;

@@ -19,7 +19,7 @@ public class puestosbici {
         this.estado = "Libre";
     }
     
-    public void asignarPuesto(bicicletas Bici){
+    public void asignarpuesto(bicicletas Bici){
         this.Bici = Bici;
     }
 
@@ -47,9 +47,11 @@ public class puestosbici {
         this.Bici = Bici;
     }
 
+    
+
   
     
-    public String libreString(){
+    public String libreStringb(){
         return "Puesto: "+this.getNumero()
             +"\nEstado: "+this.getEstado();
     }
@@ -57,6 +59,6 @@ public class puestosbici {
     public String Datosbici(){
         return "Puesto: "+this.getNumero()
             +"\nEstado: "+this.getEstado()
-            +"\nPlaca del carro: "+this.getBici().getColor();
+            +"\nColor del carro: "+this.getBici().getCedula();
     }
 }
