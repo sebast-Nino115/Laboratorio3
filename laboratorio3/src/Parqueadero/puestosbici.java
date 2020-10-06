@@ -59,6 +59,7 @@ public class puestosbici {
     public String Datosbici(){
         return "Puesto: "+this.getNumero()
             +"\nEstado: "+this.getEstado()
-            +"\nColor del carro: "+this.getBici().getCedula();
+            +"\nColor del carro: "+this.getBici().getCedula()
+            +"\nHora: "+this.getBici().getFechaingreso();
     }
 }

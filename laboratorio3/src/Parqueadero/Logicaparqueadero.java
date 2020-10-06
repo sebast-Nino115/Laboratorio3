@@ -6,9 +6,7 @@ import java.util.Date;
 
 public class Logicaparqueadero {
 public int vacantescarros=12;
-public int ocupacioncarros=0;
 public int vacantesmotos=8;
-public int ocupacionmotos=0;
 public int vacantesbicicletas=6;
 
 
@@ -57,7 +55,7 @@ public String parquearBici(String cedula, Date fechaingreso){
 
     public String retirarBici(String cedula, Date fechasalida){
         String mensaje = "No se ha podido retirar el carro";
-        int precio = this.calcularPrecio(hora, minutos, this.buscarCarro(placa));
+        int precio = 0 ;
         
         for(int i=0; i<=this.Puestob.size(); i++)
             if(this.Puestob.get(i).getBici()!= null && 
@@ -99,7 +97,9 @@ public bicicletas buscarBici(String cedula){
     }
     public int calcularPrecioBici( Date fechaingreso, Date fechasalida, bicicletas Bici){
         int costo = 0;
-        
+        int canttiempo= fechaingreso.compareTo(fechasalida);
+        System.out.println(canttiempo +" segundos");
+      
         
         
         return costo;
