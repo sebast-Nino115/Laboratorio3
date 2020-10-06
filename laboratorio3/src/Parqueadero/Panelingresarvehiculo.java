@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Parqueadero;
+import static java.awt.SystemColor.window;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,57 +49,72 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre Propietario");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 61, 146, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Placa");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 44, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tipo De Vehiculo");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 134, 139, -1));
 
         Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombreActionPerformed(evt);
             }
         });
+        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 84, 409, -1));
 
         Placa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PlacaActionPerformed(evt);
             }
         });
+        jPanel1.add(Placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 230, 44));
 
-        Registrar.setBackground(new java.awt.Color(0, 102, 102));
+        Registrar.setBackground(new java.awt.Color(153, 153, 153));
         Registrar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        Registrar.setForeground(new java.awt.Color(255, 255, 255));
         Registrar.setText("Registrar ");
         Registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegistrarActionPerformed(evt);
             }
         });
+        jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 119, 41));
 
         jLabel4.setFont(new java.awt.Font("MS UI Gothic", 3, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Ingreso de vehiculos al parquedero");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 21, 365, -1));
 
-        TipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Bicicleta" }));
+        TipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo de vehiculo", "Carro", "Moto", "Bicicleta" }));
         TipoVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TipoVehiculoActionPerformed(evt);
             }
         });
+        jPanel1.add(TipoVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 163, 224, -1));
 
         Cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CedulaActionPerformed(evt);
             }
         });
+        jPanel1.add(Color, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 230, 44));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+<<<<<<< Updated upstream
         jLabel5.setText("Cedula");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -182,6 +198,13 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+=======
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Color");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 44, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+>>>>>>> Stashed changes
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,17 +222,27 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         String placa = this.Placa.getText();
         String cedula=this.Cedula.getText();
         Date objDate = new Date(); // Sistema actual La fecha y la hora se asignan a objDate 
+<<<<<<< Updated upstream
         System.out.println(objDate); 
         String strDateFormat = "hh: mm: ss a dd-MMM-aaaa"; // El formato de fecha está especificado  
         SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); // La cadena de formato de fecha se pasa como un argumento al objeto 
         
        
         if (TipoVehiculo.getSelectedItem()== "Carro")
+=======
+        if (Placa.getText().equals("")||Nombre.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe ingresar todos los campos");
+        }
+        else if (TipoVehiculo.getSelectedItem()== "Carro")
+>>>>>>> Stashed changes
         {
             carros carronuevo = new carros();
             carronuevo.placa = Placa.getText();
             carronuevo.nombre = Nombre.getText();
-            System.out.println(""+ carronuevo.fechaingreso);
+            carronuevo.fechaingreso=objDate;
+            Placa.setText("");
+            Nombre.setText("");
+            JOptionPane.showMessageDialog(null, "Carro ingresado exitosamente");
         }
         else if(TipoVehiculo.getSelectedItem()== "Moto")
         {
@@ -217,6 +250,7 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
         }
         else if (TipoVehiculo.getSelectedItem() == "Bicicleta")
         {
+<<<<<<< Updated upstream
             if(Nombre.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese el nombre del propietario");
             }else if(Cedula.getText().isEmpty()){
@@ -225,6 +259,17 @@ public class Panelingresarvehiculo extends javax.swing.JFrame {
             parqueadero.parquearBici(cedula, objDate);
             }
         }
+=======
+            bicicletas bicicletanueva = new bicicletas();
+            bicicletanueva.nombre = Nombre.getText();
+            bicicletanueva.color = Color.getText();
+            bicicletanueva.fechaingreso=objDate;
+            Color.setText("");
+            Nombre.setText("");
+            JOptionPane.showMessageDialog(null, "Bicicleta ingresada exitosamente");
+        }
+        
+>>>>>>> Stashed changes
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void TipoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TipoVehiculoActionPerformed
